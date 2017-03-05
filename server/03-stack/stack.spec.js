@@ -6,6 +6,7 @@ describe.only('the stack spec', () => {
   const makeStack = (capacity = 2) => {
     let queue;
     let currentSize = 0;
+
     const pop = () => {
       if (currentSize === 0) throw new Error('underflow');
       currentSize--;
@@ -70,11 +71,13 @@ describe.only('the stack spec', () => {
     it('underflow', () => {
       (() => stack.pop()).should.throw('underflow');
     });
+
     it('pop what was pushed', () => {
       const element = {};
       stack.push(element);
       stack.pop().should.equal(element);
     });
+
     it('get same 2 elements back when they\'re pushed');
     it('handle negative size');
   });
