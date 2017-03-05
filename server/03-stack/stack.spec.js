@@ -3,7 +3,7 @@ describe.only('the stack spec', () => {
     true.should.be.true();
   });
 
-  const makeStack = (capacity=2) => {
+  const makeStack = (capacity = 2) => {
     let currentSize = 0;
     const pop = () => {
       if (currentSize === 0) throw new Error('underflow');
