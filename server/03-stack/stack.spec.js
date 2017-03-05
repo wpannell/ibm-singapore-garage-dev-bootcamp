@@ -6,7 +6,7 @@ describe.only('the stack spec', () => {
   const stack = {
     isEmpty: () => true,
     push: () => {},
-    size: () => {}
+    size: () => null
   };
 
   describe('a stack should', () => {
