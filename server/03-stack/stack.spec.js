@@ -47,7 +47,14 @@ describe.only('the stack spec', () => {
       stack.isEmpty().should.be.true();
     });
 
-    it('overflow');
+    it('overflow', () => {
+      (() => {
+        stack = makeStack(2);
+        stack.push();
+        stack.push();
+        stack.push();
+      }).should.throw('overflow');
+    });
     it('underflow');
     it('pop what was pushed');
     it('get same 2 elements back when they\'re pushed');
