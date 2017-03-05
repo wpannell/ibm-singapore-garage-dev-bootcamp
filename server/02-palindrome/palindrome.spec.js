@@ -7,8 +7,9 @@ describe.only('the palindrome canary spec', () => {
 
   describe('palindrome should be', () => {
     it('true for "mom"', () => {
-      isPalindrome("mom").should.be.true();
+      isPalindrome('mom').should.be.true();
     });
+
     it('false for "dude"');
     it('true for "mom dad mom"');
     it('false for "dude dude dude dude"');
