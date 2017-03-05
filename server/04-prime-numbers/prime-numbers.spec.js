@@ -4,7 +4,9 @@ describe('the prime numbers canary spec', () => {
   });
 
   describe('prime numbers of', () => {
-    it('"1" are none');
+    it('"1" are none', () => {
+      primeNumbersOf(1).should.deepEqual([]);
+    });
     it('"2" is only "2"');
     it('"3" is only "3"');
     it('"4" are  "2" and "2"');
