@@ -1,8 +1,16 @@
-describe('the stack spec', () => {
+describe.only('the stack spec', () => {
   it('shows the infrastructure works', () => {
     true.should.be.true();
   });
 
   describe('a stack should', () => {
+    it('be empty on create');
+    it('have size = 1 on push');
+    it('have size = 0 on push and pop');
+    it('overflow');
+    it('underflow');
+    it('pop what was pushed');
+    it('get same 2 elements back when they\'re pushed');
+    it('handle negative size');
   });
 });
