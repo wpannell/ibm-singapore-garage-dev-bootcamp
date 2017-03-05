@@ -1,4 +1,4 @@
-describe.only('the palindrome canary spec', () => {
+describe('the palindrome canary spec', () => {
   it('shows the infrastructure works', () => {
     true.should.be.true();
   });
@@ -7,8 +7,8 @@ describe.only('the palindrome canary spec', () => {
     if (typeof phrase === 'undefined') throw new Error('no argument');
     if (phrase === null) throw new Error('cannot be null');
     if (phrase === '') throw new Error('phrase cannot be empty');
-    const delimiter = '';
-    return phrase.trim().split(delimiter).reverse().join(delimiter) === phrase;
+
+    return phrase.trim().split('').reverse().join('') === phrase;
   };
 
   describe('palindrome should be', () => {
