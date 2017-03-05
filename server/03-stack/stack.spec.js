@@ -3,7 +3,9 @@ describe.only('the stack spec', () => {
     true.should.be.true();
   });
 
-  const stack = {};
+  const stack = {
+    isEmpty: () => {}
+  };
   describe('a stack should', () => {
     it('be empty on create', () => {
       stack.isEmpty().should.be.true();
