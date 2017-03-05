@@ -4,7 +4,7 @@ describe.only('the palindrome canary spec', () => {
   });
 
   const isPalindrome = (phrase) => {
-    if(phrase === '') throw new Error('phrase cannot be empty');
+    if (phrase === '') throw new Error('phrase cannot be empty');
     const delimiter = '';
     return phrase.trim().split(delimiter).reverse().join(delimiter) === phrase;
   };
@@ -31,10 +31,9 @@ describe.only('the palindrome canary spec', () => {
     });
 
     it('"phrase cannot be empty" error — for empty string', () => {
-      (() => {
-        isPalindrome('');
-      }).should.throw('phrase cannot be empty');
+      (() => isPalindrome('')).should.throw('phrase cannot be empty');
     });
+
     it('"cannot be null" error — for null');
     it('"no argument" error — when no argument is passed');
   });
