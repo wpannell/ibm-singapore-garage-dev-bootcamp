@@ -5,11 +5,12 @@ describe.only('the stack spec', () => {
 
   const makeStack = () => {
     let currentSize = 0;
+    const push = () => currentSize++;
 
     return {
       isEmpty: () => currentSize === 0,
       pop: () => currentSize--,
-      push: () => currentSize++,
+      push,
       size: () => currentSize
     };
   };
