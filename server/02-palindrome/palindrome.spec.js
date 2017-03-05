@@ -24,8 +24,9 @@ describe.only('the palindrome canary spec', () => {
     it('false for "dude dude dude dude"', () => {
       isPalindrome('dude dude dude dude').should.be.false();
     });
-    it('"must be a word or phrase" error— for whitespace');
-    it('"cannot be null" error— for null');
-    it('"no argument" error— when no argument is passed');
+
+    it('"must be a word or phrase" error — for whitespace');
+    it('"cannot be null" error — for null');
+    it('"no argument" error — when no argument is passed');
   });
 });
