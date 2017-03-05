@@ -5,25 +5,23 @@ describe.only('the stack spec', () => {
 
   const makeStack = (capacity = 2) => {
     let queue = [];
-    let currentSize = 0;
+    const size = () => queue.length;
 
     const pop = () => {
-      if (currentSize === 0) throw new Error('underflow');
-      currentSize--;
+      if (size() === 0) throw new Error('underflow');
       return queue.pop();
     };
 
     const push = (element) => {
-      if (currentSize === capacity) throw new Error('overflow');
+      if (size() === capacity) throw new Error('overflow');
       queue.push(element);
-      currentSize++;
     };
 
     return {
-      isEmpty: () => currentSize === 0,
+      isEmpty: () => size() === 0,
       pop,
       push,
-      size: () => currentSize
+      size
     };
   };
 
@@ -86,6 +84,7 @@ describe.only('the stack spec', () => {
       stack.pop().should.equal(element2);
       stack.pop().should.equal(element1);
     });
+
     it('handle negative size');
   });
 });
