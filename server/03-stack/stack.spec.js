@@ -85,6 +85,8 @@ describe.only('the stack spec', () => {
       stack.pop().should.equal(element1);
     });
 
-    it('handle negative size');
+    it('handle negative size', () => {
+      (() => makeStack(-1)).should.throw('capacity cannot be negative');
+    });
   });
 });
