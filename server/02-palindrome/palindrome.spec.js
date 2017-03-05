@@ -20,6 +20,7 @@ describe.only('the palindrome canary spec', () => {
     it('true for "mom dad mom"', () => {
       isPalindrome('mom dad mom').should.be.true();
     });
+
     it('false for "dude dude dude dude"');
     it('"must be a word or phrase" error— for whitespace');
     it('"cannot be null" error— for null');
