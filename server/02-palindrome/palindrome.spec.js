@@ -3,7 +3,9 @@ describe.only('the palindrome canary spec', () => {
     true.should.be.true();
   });
 
-  const isPalindrome = () => true;
+  const isPalindrome = (word) => {
+    return word;
+  };
 
   describe('palindrome should be', () => {
     it('true for "mom"', () => {
