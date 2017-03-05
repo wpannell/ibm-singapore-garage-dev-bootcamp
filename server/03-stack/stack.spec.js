@@ -30,7 +30,10 @@ describe.only('the stack spec', () => {
       stack.size().should.equal(1);
     });
 
-    it('not be empty on push');
+    it('not be empty on push', () => {
+      stack.push();
+      stack.isEmpty().should.be.false();
+    });
 
     it('have size = 0 on push and pop', () => {
       stack.push();
