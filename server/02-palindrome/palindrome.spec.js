@@ -34,7 +34,9 @@ describe.only('the palindrome canary spec', () => {
       (() => isPalindrome('')).should.throw('phrase cannot be empty');
     });
 
-    it('"cannot be null" error — for null');
+    it('"cannot be null" error — for null', () => {
+      (() => isPalindrome(null)).should.throw('cannot be null');
+    });
     it('"no argument" error — when no argument is passed');
   });
 });
