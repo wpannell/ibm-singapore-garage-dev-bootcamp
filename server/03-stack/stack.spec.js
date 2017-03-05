@@ -12,7 +12,10 @@ describe.only('the stack spec', () => {
       stack.isEmpty().should.be.true();
     });
 
-    it('have size = 1 on push');
+    it('have size = 1 on push', () => {
+      stack.push();
+      stack.size().should.equal(1);
+    });
     it('have size = 0 on push and pop');
     it('overflow');
     it('underflow');
