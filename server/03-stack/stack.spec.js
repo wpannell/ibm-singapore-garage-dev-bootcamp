@@ -5,8 +5,9 @@ describe.only('the stack spec', () => {
 
   const makeStack = (capacity=2) => {
     let currentSize = 0;
+
     const push = () => {
-      if(currentSize === capacity) throw new Error('overflow');
+      if (currentSize === capacity) throw new Error('overflow');
       currentSize++;
     };
 
@@ -59,6 +60,7 @@ describe.only('the stack spec', () => {
         stack.push();
       }).should.throw('overflow');
     });
+
     it('underflow');
     it('pop what was pushed');
     it('get same 2 elements back when they\'re pushed');
