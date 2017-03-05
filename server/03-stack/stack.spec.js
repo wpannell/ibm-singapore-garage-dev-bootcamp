@@ -5,6 +5,7 @@ describe.only('the stack spec', () => {
 
   const makeStack = (capacity=2) => {
     let currentSize = 0;
+    const pop = () => currentSize--;
 
     const push = () => {
       if (currentSize === capacity) throw new Error('overflow');
@@ -13,7 +14,7 @@ describe.only('the stack spec', () => {
 
     return {
       isEmpty: () => currentSize === 0,
-      pop: () => currentSize--,
+      pop,
       push,
       size: () => currentSize
     };
