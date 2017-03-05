@@ -4,7 +4,8 @@ describe('the prime numbers canary spec', () => {
   });
 
   const primeNumbersOf = () => {
-    return [];
+    const factors = [];
+    return factors;
   };
 
   describe('prime numbers of', () => {
