@@ -1,10 +1,10 @@
-describe.only('the fahrenheit2celsius canary spec', () => {
+describe('the fahrenheit2celsius canary spec', () => {
   it('shows the infrastructure works', () => {
     true.should.be.true();
   });
 
   const fahrenheit2celsius = (fahrenheit) => {
-    return (fahrenheit-32)*5/9 ;
+    return (fahrenheit - 32) * 5 / 9;
   };
 
   describe('fahrenheit2celsius should', () => {
