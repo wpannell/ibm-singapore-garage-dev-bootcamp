@@ -3,9 +3,12 @@ describe.only('the stack spec', () => {
     true.should.be.true();
   });
 
-  const makeStack = () => {
+  const makeStack = (capacity=2) => {
     let currentSize = 0;
-    const push = () => currentSize++;
+    const push = () => {
+      if(currentSize === capacity) throw new Error('overflow');
+      currentSize++;
+    };
 
     return {
       isEmpty: () => currentSize === 0,
