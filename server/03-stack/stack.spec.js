@@ -78,7 +78,14 @@ describe.only('the stack spec', () => {
       stack.pop().should.equal(element);
     });
 
-    it('get same 2 elements back when they\'re pushed');
+    it('get same 2 elements back when they\'re pushed', () => {
+      const element1 = {};
+      const element2 = [];
+      stack.push(element1);
+      stack.push(element2);
+      stack.pop().should.equal(element2);
+      stack.pop().should.equal(element1);
+    });
     it('handle negative size');
   });
 });
