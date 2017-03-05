@@ -55,7 +55,6 @@ describe.only('the stack spec', () => {
 
     it('overflow', () => {
       (() => {
-        stack = makeStack();
         stack.push();
         stack.push();
         stack.push();
