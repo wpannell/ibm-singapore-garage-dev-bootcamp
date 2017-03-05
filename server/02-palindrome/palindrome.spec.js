@@ -3,9 +3,9 @@ describe.only('the palindrome canary spec', () => {
     true.should.be.true();
   });
 
-  const isPalindrome = (word) => {
+  const isPalindrome = (phrase) => {
     const delimiter = '';
-    return word.split(delimiter).reverse().join(delimiter) === word;
+    return phrase.split(delimiter).reverse().join(delimiter) === phrase;
   };
 
   describe('palindrome should be', () => {
