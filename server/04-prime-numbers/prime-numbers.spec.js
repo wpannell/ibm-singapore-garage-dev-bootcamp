@@ -3,6 +3,8 @@ describe('the prime numbers canary spec', () => {
     true.should.be.true();
   });
 
+  const primeNumbersOf = () => {};
+
   describe('prime numbers of', () => {
     it('"1" are none', () => {
       primeNumbersOf(1).should.deepEqual([]);
