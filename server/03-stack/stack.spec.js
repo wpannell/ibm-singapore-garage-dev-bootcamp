@@ -4,7 +4,9 @@ describe.only('the stack spec', () => {
   });
 
   describe('a stack should', () => {
-    it('be empty on create');
+    it('be empty on create', () => {
+      stack.isEmpty().should.be.true();
+    });
     it('have size = 1 on push');
     it('have size = 0 on push and pop');
     it('overflow');
