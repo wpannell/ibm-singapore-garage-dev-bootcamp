@@ -7,7 +7,7 @@ describe.only('the stack spec', () => {
     let currentSize = 0;
 
     return {
-      isEmpty: () => true,
+      isEmpty: () => currentSize === 0,
       pop: () => currentSize--,
       push: () => currentSize++,
       size: () => currentSize
