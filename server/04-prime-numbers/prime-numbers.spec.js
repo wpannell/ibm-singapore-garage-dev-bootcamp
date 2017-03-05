@@ -22,7 +22,9 @@ describe('the prime numbers canary spec', () => {
       primeNumbersOf(3).should.deepEqual([3]);
     });
 
-    it('"4" are  "2" and "2"');
+    it('"4" are  "2" and "2"', () => {
+      primeNumbersOf(4).should.deepEqual([2, 2]);
+    });
     it('"5" is only "5"');
     it('"6" are  "2" and "3"');
     it('"7" is only "7"');
