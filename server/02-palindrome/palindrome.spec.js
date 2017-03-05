@@ -4,6 +4,7 @@ describe.only('the palindrome canary spec', () => {
   });
 
   const isPalindrome = (phrase) => {
+    if(phrase === '') throw new Error('phrase cannot be empty');
     const delimiter = '';
     return phrase.trim().split(delimiter).reverse().join(delimiter) === phrase;
   };
