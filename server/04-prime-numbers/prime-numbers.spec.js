@@ -3,7 +3,7 @@ describe('the prime numbers canary spec', () => {
     true.should.be.true();
   });
 
-  const primeNumbersOf = () => {};
+  const primeNumbersOf = () => null;
 
   describe('prime numbers of', () => {
     it('"1" are none', () => {
