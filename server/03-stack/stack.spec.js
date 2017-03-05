@@ -61,7 +61,9 @@ describe.only('the stack spec', () => {
       }).should.throw('overflow');
     });
 
-    it('underflow');
+    it('underflow', () => {
+      (() => stack.pop()).should.throw('underflow');
+    });
     it('pop what was pushed');
     it('get same 2 elements back when they\'re pushed');
     it('handle negative size');
