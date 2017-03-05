@@ -11,13 +11,9 @@ describe.only('the stack spec', () => {
     };
   };
 
-  let stack = {
-    isEmpty: () => true,
-    push: () => {},
-    size: () => 1
-  };
-
   describe('a stack should', () => {
+    let stack;
+
     beforeEach(() => {
       stack = makeStack();
     });
