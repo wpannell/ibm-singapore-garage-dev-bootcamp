@@ -7,13 +7,15 @@ describe.only('the prime numbers canary spec', () => {
 
   const primeNumbersOf = (number) => {
     const factors = [];
+
     if (number > 1) {
       if (number % 2 === 0) {
         factors.push(2);
         number /= 2;
       }
-      if (number > 1) factors.push(number);
     }
+
+    if (number > 1) factors.push(number);
     return factors;
   };
 
@@ -33,6 +35,7 @@ describe.only('the prime numbers canary spec', () => {
     it('"4" are  "2" and "2"', () => {
       primeNumbersOf(4).should.deepEqual([2, 2]);
     });
+
     it('"5" is only "5"');
     it('"6" are  "2" and "3"');
     it('"7" is only "7"');
