@@ -41,7 +41,11 @@ describe.only('the stack spec', () => {
       stack.size().should.equal(0);
     });
 
-    it('be empty on push and pop');
+    it('be empty on push and pop', () => {
+      stack.push();
+      stack.pop();
+      stack.isEmpty().should.be.false();
+    });
     it('overflow');
     it('underflow');
     it('pop what was pushed');
