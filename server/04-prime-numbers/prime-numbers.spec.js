@@ -1,4 +1,4 @@
-describe('the prime numbers canary spec', () => {
+describe.only('the prime numbers canary spec', () => {
   it('shows the infrastructure works', () => {
     true.should.be.true();
   });
@@ -6,6 +6,10 @@ describe('the prime numbers canary spec', () => {
   const primeNumbersOf = (number) => {
     const factors = [];
     if (number > 1) {
+      if (number % 2 === 0) {
+        factors.push(2);
+        number /= 2;
+      }
       factors.push(number);
     }
     return factors;
