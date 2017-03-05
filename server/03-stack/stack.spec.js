@@ -4,6 +4,8 @@ describe.only('the stack spec', () => {
   });
 
   const makeStack = (capacity = 2) => {
+    if (capacity < 0) throw new Error('capacity cannot be negative');
+
     let queue = [];
     const size = () => queue.length;
 
