@@ -3,13 +3,25 @@ describe.only('the stack spec', () => {
     true.should.be.true();
   });
 
-  const stack = {
+  const makeStack = () => {
+    return {
+      isEmpty: () => true,
+      push: () => {},
+      size: () => 1
+    };
+  };
+
+  let stack = {
     isEmpty: () => true,
     push: () => {},
     size: () => 1
   };
 
   describe('a stack should', () => {
+    beforeEach(() => {
+      stack = makeStack();
+    });
+
     it('be empty on create', () => {
       stack.isEmpty().should.be.true();
     });
