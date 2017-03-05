@@ -3,7 +3,7 @@ describe('the prime numbers canary spec', () => {
     true.should.be.true();
   });
 
-  const primeNumbersOf = () => {
+  const primeNumbersOf = (number) => {
     const factors = [];
     if (number > 1) factors.push(2);
     return factors;
