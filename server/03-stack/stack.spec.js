@@ -18,6 +18,7 @@ describe.only('the stack spec', () => {
       stack.push();
       stack.size().should.equal(1);
     });
+
     it('have size = 0 on push and pop');
     it('overflow');
     it('underflow');
