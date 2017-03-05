@@ -10,6 +10,8 @@ describe.only('the fahrenheit2celsius canary spec', () => {
       fahrenheit2celsius(32).should.equal(0);
     });
 
-    it('give 10°C for 50°F');
+    it('give 10°C for 50°F', () => {
+      fahrenheit2celsius(50).should.equal(10);
+    });
   });
 });
