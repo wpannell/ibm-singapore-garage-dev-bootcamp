@@ -4,7 +4,8 @@ describe.only('the palindrome canary spec', () => {
   });
 
   const isPalindrome = (word) => {
-    return word.split('').reverse().join('') === word;
+    const delimiter = '';
+    return word.split(delimiter).reverse().join(delimiter) === word;
   };
 
   describe('palindrome should be', () => {
@@ -15,6 +16,7 @@ describe.only('the palindrome canary spec', () => {
     it('false for "dude"', () => {
       isPalindrome('dude').should.be.false();
     });
+
     it('true for "mom dad mom"');
     it('false for "dude dude dude dude"');
     it('"must be a word or phrase" error— for whitespace');
