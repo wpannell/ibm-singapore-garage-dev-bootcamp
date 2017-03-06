@@ -1,6 +1,6 @@
 import {lineCount} from './line-count';
 
-describe.only('line count', () => {
+describe('line count', () => {
   it('for file —— line-count.js —— should be 13', done => {
     function onSuccessReceivedLineCount(numberOfLines) {
       numberOfLines.should.equal(13);
