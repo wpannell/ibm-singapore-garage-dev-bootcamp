@@ -7,21 +7,21 @@ describe('unusual spending should', () => {
   });
 
   it('interact with fetch, high-spending and email', () => {
-    const fetchDouble = replace('./fetch')['fetch'];
-    const categorizeDouble = replace('./categorize')['categorize'];
-    const emailDouble = replace('./email')['email'];
+    const fetch = replace('./fetch')['fetch'];
+    const categorize = replace('./categorize')['categorize'];
+    const email = replace('./email')['email'];
 
     let unusualSpending;
 
-    when(fetchDouble('user-id')).thenResolve('payments');
-    when(categorizeDouble('payments')).thenReturn('categorized-payments');
+    when(fetch('user-id')).thenResolve('payments');
+    when(categorize('payments')).thenReturn('categorized');
 
     unusualSpending = require('./unusual-spending').unusualSpending;
 
-    const receiveCategorizedPayments = () => {
-      verify(emailDouble('user-id', 'categorized-payments'));
+    const emailPayments = () => {
+      verify(email('user-id', 'categorized'));
     };
 
-    return unusualSpending('user-id').then(receiveCategorizedPayments);
+    return unusualSpending('user-id').then(emailPayments);
   });
 });
