@@ -9,11 +9,18 @@ describe('line count', () => {
       numberOfLines.should.equal(13);
       done();
     }
-
-    //const lineCount = (filename, onError, onSuccess) => {
     lineCount(filespec, null, onSuccessReceiveLineCount);
-  });
-  it('for file —— is-not-there.js —— should be problem reading file: ' +
-      'is-not-there.js');
-});
 
+  });
+
+  it('for file —— is-not-there.js —— should be problem reading file: ' +
+      'is-not-there.js', done => {
+
+    const OnErrorReceiveMessage = (message) => {
+      message.should.equal('problem reading file: is-not-there.js');
+      done();
+    };
+    lineCount('is-not-there.js', OnErrorReceiveMessage, null);
+
+  });
+});
