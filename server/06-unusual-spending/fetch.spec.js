@@ -11,16 +11,27 @@ describe('fetch spec', () => {
       const months = replace('./months');
       const api = replace('./api')['api'];
 
-      let fetch;
-
       when(months.current()).thenReturn('current-month');
       when(months.prior()).thenReturn('prior-month');
 
-      fetch = require('./fetch')['fetch'];
+      const fetch = require('./fetch')['fetch'];
       fetch('user-id');
 
       verify(api('user-id', 'current-month'));
       verify(api('user-id', 'prior-month'));
+    });
+
+    it('return correct output for stubbed inputs', () => {
+      const months = replace('./months');
+      const api = replace('./api')['api'];
+
+      when(months.prior()).thenReturn('prior-month');
+      when(months.current()).thenReturn('current-month');
+      when(api('dummy-id', 'prior-month')).thenReturn('prior-payments');
+      when(api('dummy-id', 'current-month')).thenReturn('current-payments');
+
+      const fetch = require('./fetch')['fetch'];
+      fetch('dummy-id').should.deepEqual(['prior-payments', 'current-payments']);
     });
   });
 });
