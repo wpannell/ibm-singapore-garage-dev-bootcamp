@@ -6,12 +6,10 @@ describe.only('the prime numbers canary spec', () => {
 
   const primeFactorsOf = (number) => {
     let factors = [];
-    let divisor = 2;
-    while (number > 1) {
+    for (let divisor = 2; number > 1; divisor++) {
       for (; number % divisor === 0; number /= divisor) factors.push(divisor);
-      divisor++;
     }
-    if (number > 1) factors.push(number);
+
     return factors;
   };
 
