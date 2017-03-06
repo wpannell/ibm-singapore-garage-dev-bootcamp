@@ -7,10 +7,11 @@ describe.only('the prime numbers canary spec', () => {
 
   const primeNumbersOf = (number) => {
     const factors = [];
+    let divisor = 2;
 
-    if (number > 1) {
-      for (; number % 2 === 0; number /= 2) factors.push(2);
-      for (; number % 3 === 0; number /= 3) factors.push(3);
+    while (number > 1) {
+      for (; number % divisor === 0; number /= divisor) factors.push(divisor);
+      divisor++;
     }
 
     if (number > 1) factors.push(number);
