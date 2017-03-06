@@ -7,7 +7,7 @@
     "clear": "node ./clear.js",
     "lint": "esw -f simple-detail web server",
     "lint:watch_backup": "nodemon 2>/dev/null  --exec 'npm run lint'",
-    "lint:watch": "nodemon 2>NULL  --exec npm run lint",
+    "lint:watch": "nodemon 2>NUL  --exec npm run lint",
     "coverage": "nyc --reporter=lcov --reporter=text --require babel-register npm run spec",
     "spec": "clear && mocha --compilers js:babel-register --reporter spec --growl --recursive ./test-helper.js  server/**/*.spec.js",
     "spec:watch_backup": "nodemon 2>/dev/null  --exec 'npm run spec || true'",
