@@ -29,9 +29,9 @@ const makeRentalFrom = (movie, daysRented) => {
   };
 
   return {
+    amountFor,
     get movie() { return movie; },
     get daysRented() { return daysRented; },
-    get amountFor() { return amountFor; }
   };
 };
 
