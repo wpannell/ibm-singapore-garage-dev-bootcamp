@@ -1,4 +1,6 @@
 /*eslint no-param-reassign: "off" */
+/*eslint curly: "off" */
+
 describe('the prime numbers canary spec', () => {
   it('shows the infrastructure works', () => {
     true.should.be.true();
@@ -7,11 +9,10 @@ describe('the prime numbers canary spec', () => {
   const primeFactorsOf = (number) => {
     const factors = [];
 
-    let divisor = 2;
-    while (number > 1) {
-        for (; number % divisor === 0; number /= divisor) factors.push(divisor);
-        divisor++;
+    for (let divisor = 2; number > 1; divisor++) {
+      for (; number % divisor === 0; number /= divisor) factors.push(divisor);
     }
+
     if (number > 1) factors.push(number);
     return factors;
 
