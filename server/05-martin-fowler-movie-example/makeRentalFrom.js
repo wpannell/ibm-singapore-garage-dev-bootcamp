@@ -4,7 +4,7 @@ let makeRentalFrom = (movie, daysRented) => {
   let amountFor = function() {
     let subTotal = 0;
     //noinspection Eslint
-    switch(movie.priceCode) {
+    switch (movie.priceCode) {
       case REGULAR:
 
         subTotal += 2;
