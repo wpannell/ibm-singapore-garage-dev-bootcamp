@@ -1,9 +1,27 @@
-describe('line count can be checked', () => {
-  //const filespec = 'server/async-01-line-count-with-callback/line-count.js';
+import {lineCount} from './line-count';
 
-  it('with the done parameter like with a callback');
+describe.only('line count can be checked', () => {
+  const filespec = 'server/async-02-line-count-with-promise/line-count.js';
 
-  it('by returning the promise after .then');
+  it('with the done parameter like with a callback', (done) => {
 
-  it('by using eventually or fulfilledWith');
+    const receiveCount = (noOfLine) => {
+      //console.log(noOfLine);
+      noOfLine.should.equal(18);
+      done();
+    };
+
+    lineCount(filespec).then(receiveCount);
+  });
+
+  it('by returning the promise after .then', () => {
+    const receiveCount = (noOfLine) => {
+      noOfLine.should.equal(18);
+    };
+    return lineCount(filespec).then(receiveCount);
+  });
+
+  it('by using eventually or fulfilledWith', () => {
+    return lineCount(filespec).should.eventually.equal(18);
+  });
 });
