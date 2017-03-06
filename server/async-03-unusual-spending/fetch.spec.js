@@ -25,7 +25,7 @@ describe('fetch spec', () => {
       verify(api('dummy-id', 'current-month'));
     });
 
-    it('return correct output for stubbed inputs', (done) => {
+    it('return correct output for stubbed inputs', () => {
       const months = replace('./months');
       const api = replace('./api').api;
 
@@ -37,10 +37,8 @@ describe('fetch spec', () => {
       const fetch = require('./fetch')['fetch'];
       const fetchResult = fetch('dummy-id');
 
-      Promise.all(fetchResult).then((values) => {
-        values.should.deepEqual(['prior-payments', 'current-payments']);
-        done();
-      });
+      return Promise.all(fetchResult).should.eventually.deepEqual(
+        ['prior-payments', 'current-payments']);
     });
   });
 });
