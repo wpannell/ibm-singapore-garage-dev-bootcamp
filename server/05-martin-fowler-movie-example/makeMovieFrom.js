@@ -1,4 +1,4 @@
-let makeMovieFrom = (title, somePriceCode) => {
+const makeMovieFrom = (title, somePriceCode) => {
   let priceCode = somePriceCode;
 
   return {

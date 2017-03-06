@@ -1,6 +1,6 @@
 import {REGULAR, NEW_RELEASE, CHILDRENS} from './movie-codes';
 
-let makeRentalFrom = (movie, daysRented) => {
+const makeRentalFrom = (movie, daysRented) => {
   const amountFor = () => {
     let subTotal = 0;
     //noinspection Eslint

@@ -1,7 +1,7 @@
 import {NEW_RELEASE} from './movie-codes';
 
-let makeCustomerFrom = (name) => {
-  let rentals = [];
+const makeCustomerFrom = (name) => {
+  const rentals = [];
 
   return {
     get name() { return name; },
