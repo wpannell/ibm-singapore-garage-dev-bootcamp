@@ -5,14 +5,12 @@ describe.only('the prime numbers canary spec', () => {
   });
   const primeFactorsOf = (number) => {
     let factors = [];
-    if (number > 1) {
-      if (number % 2 === 0) {
-        factors.push(2);
-        number /= 2;
-      }
-      if (number > 1) factors.push(number);
-      //factors.sort();
+    let divisor = 2;
+    while (number > 1) {
+      for (; number % divisor === 0; number /= divisor) factors.push(divisor);
+      divisor++;
     }
+    if (number > 1) factors.push(number);
     return factors;
   };
 
@@ -39,10 +37,10 @@ describe.only('the prime numbers canary spec', () => {
       primeFactorsOf(7).should.deepEqual([7]);
     });
     it('8 are 2, 2 and 2', () => {
-      true.should.be.true();
+      primeFactorsOf(8).should.deepEqual([2, 2, 2]);
     });
     it('9 are 3 and 3', () => {
-      true.should.be.true();
+      primeFactorsOf(9).should.deepEqual([3, 3]);
     });
   });
 });
