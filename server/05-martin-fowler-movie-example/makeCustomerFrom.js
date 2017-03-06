@@ -1,4 +1,6 @@
-import {REGULAR, NEW_RELEASE, CHILDRENS} from './movie-codes';
+import {NEW_RELEASE} from './movie-codes';
+import {amountFor} from './amount-for';
+
 
 let makeCustomerFrom = (name) => {
   let rentals = [];
@@ -13,35 +15,9 @@ let makeCustomerFrom = (name) => {
       let statement = 'Rental Record for ' + name + '\n';
 
       for (let i = 0; i < rentals.length; i++) {
-        let subTotal = 0;
         let rental = rentals[i];
-
+        let subTotal = amountFor(rental);
         //noinspection Eslint
-        switch (rental.movie.priceCode) {
-          case REGULAR:
-
-            subTotal += 2;
-            if (rental.daysRented > 2) {
-              subTotal += (rental.daysRented - 2) * 1.5;
-            }
-            break;
-
-          case NEW_RELEASE:
-
-            subTotal += rental.daysRented * 3;
-            break;
-
-          case CHILDRENS:
-
-            subTotal += 1.5;
-            if (rental.daysRented > 3) {
-              subTotal += (rental.daysRented - 3) * 1.5;
-            }
-
-            break;
-          default:
-
-        }
 
         // add frequent renter points
         frequentRenterPoints++;
