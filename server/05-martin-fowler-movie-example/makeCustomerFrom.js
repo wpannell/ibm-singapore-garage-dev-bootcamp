@@ -1,13 +1,17 @@
 import {NEW_RELEASE} from './movie-codes';
-import {amountFor} from './amount-for';
 
 
-let makeCustomerFrom = (name) => {
+let makeCustomerFrom;
+makeCustomerFrom = (name) => {
   let rentals = [];
 
   return {
-    get name() { return name; },
-    addRental(rental) { rentals.push(rental); },
+    get name() {
+      return name;
+    },
+    addRental(rental) {
+      rentals.push(rental);
+    },
 
     statement() {
       let total = 0;
@@ -16,7 +20,7 @@ let makeCustomerFrom = (name) => {
 
       for (let i = 0; i < rentals.length; i++) {
         let rental = rentals[i];
-        let subTotal = amountFor(rental);
+        let subTotal = rental.getCharge();
         //noinspection Eslint
 
         // add frequent renter points
@@ -24,7 +28,7 @@ let makeCustomerFrom = (name) => {
 
         // add bonus for a two day new release rental
         if ((rental.movie.priceCode === NEW_RELEASE) &&
-            rental.daysRented > 1) frequentRenterPoints++;
+        rental.daysRented > 1) frequentRenterPoints++;
 
         //show figures for this rental
         statement += '\t' + rental.movie.title + '\t' + subTotal.toString(10) + '\n';
@@ -35,7 +39,7 @@ let makeCustomerFrom = (name) => {
       //add footer lines
       statement += 'Amount owed is ' + total.toString(10) + '\n';
       statement += 'You earned ' + String(frequentRenterPoints) +
-          ' frequent renter points';
+      ' frequent renter points';
 
       return statement;
     }
