@@ -1,6 +1,6 @@
 import td from 'testdouble';
 
-describe.only('the unusual spending spec', () => {
+describe('the unusual spending spec', () => {
   it('shows the infrastructure works', () => {
     true.should.be.true();
   });
