@@ -1,4 +1,4 @@
-import {REGULAR, NEW_RELEASE, CHILDRENS} from './movie-codes';
+import {NEW_RELEASE} from './movie-codes';
 import {amountFor} from './amount-for';
 
 let makeCustomerFrom = (name) => {
