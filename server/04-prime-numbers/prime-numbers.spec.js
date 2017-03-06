@@ -48,7 +48,9 @@ describe.only('the prime numbers canary spec', () => {
       primeNumbersOf(7).should.deepEqual([7]);
     });
 
-    it('"8" are  "2," "2" and "2"');
+    it('"8" are  "2," "2" and "2"', () => {
+      primeNumbersOf(8).should.deepEqual([2, 2, 2]);
+    });
     it('"9" are  "3" and "3"');
   });
 });
