@@ -10,7 +10,7 @@ describe('unusual spending spec', () => {
         'categorize and email', (done) => {
       const fetch = td.replace('./fetch').fetch;
       const categorize = td.replace('./categorize').categorize;
-      const email = td.replace('./email').email;
+      //const email = td.replace('./email').email;
 
       td.when(fetch('dummy-id')).thenResolve('dummy-payments');
       td.when(categorize('dummy-payments')).thenReturn('dummy-categorized-payments');
