@@ -8,14 +8,10 @@ describe('the prime numbers canary spec', () => {
     const factors = [];
 
     if (number > 1) {
-      if (number % 2 === 0) {
-        factors.push(2);
-        number /= 2;
-      }
-      if (number > 1) {
-        factors.push(number);
-      }
+      for (; number % 2 === 0; number /= 2) factors.push(2);
+      for (; number % 3 === 0; number /= 3) factors.push(3);
     }
+    if (number > 1) factors.push(number);
     return factors;
 
     /*
@@ -51,7 +47,11 @@ describe('the prime numbers canary spec', () => {
     it('7 are only 7', () => {
       primeFactorsOf(7).should.deepEqual([7]);
     });
-    it('8 are not 2, 2 and 2');
-    it('9 are 3 and 3');
+    it('8 are not 2, 2 and 2', () => {
+      primeFactorsOf(8).should.deepEqual([2, 2, 2]);
+    });
+    it('9 are 3 and 3', () => {
+      primeFactorsOf(9).should.deepEqual([3, 3]);
+    });
   });
 });
