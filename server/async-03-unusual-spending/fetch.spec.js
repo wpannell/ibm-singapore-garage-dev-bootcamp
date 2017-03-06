@@ -35,9 +35,8 @@ describe('fetch spec', () => {
       when(api('dummy-id', 'current-month')).thenResolve('current-payments');
 
       const fetch = require('./fetch')['fetch'];
-      const fetchResult = fetch('dummy-id');
 
-      return Promise.all(fetchResult).should.eventually.deepEqual(
+      return fetch('dummy-id').should.eventually.deepEqual(
         ['prior-payments', 'current-payments']);
     });
   });

@@ -5,7 +5,7 @@ const fetch = (id) => {
   let priorPayments = api(id, months.prior());
   let currentPayments = api(id, months.current());
 
-  return [priorPayments, currentPayments];
+  return Promise.all([priorPayments, currentPayments]);
 };
 
 export {fetch};
