@@ -11,6 +11,13 @@ describe.only('line count', () => {
     lineCount(filespec, null, onSuccessReceiveLineCount);
   });
 
+  //noinspection JSAnnotator
   it('for file —— is-not-there.js —— should be problem reading file: ' +
-      'is-not-there.js');
+      'is-not-there.js', done => {
+    const onErrorReceiveMessage = (message) => {
+      message.should.equal('problem reading file: is-not-there.js');
+      done();
+    };
+    lineCount('is-not-there.js', onErrorReceiveMessage, null);
+  });
 });
