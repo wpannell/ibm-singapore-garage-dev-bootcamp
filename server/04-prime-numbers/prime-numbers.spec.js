@@ -6,11 +6,13 @@ describe.only('the prime numbers canary spec', () => {
 
   const primeFactorsOf = (number) => {
     let factors = [];
-    if (number > 1) {
+    let divisor = 2;
+    while (number > 1) {
       //divide by 2 until it cannot be divided by 2. for each iteration, push 2
-      for (; number % 2 === 0; number /= 2) factors.push(2);
-      if (number > 1) factors.push(number);
+      for (; number % divisor === 0; number /= divisor) factors.push(divisor);
+      divisor++;
     }
+    if (number > 1) factors.push(number);
     return factors;
   };
 
@@ -40,7 +42,7 @@ describe.only('the prime numbers canary spec', () => {
       primeFactorsOf(8).should.deepEqual([2, 2, 2]);
     });
     it('9 are 3 and 3', () => {
-      //primeFactorsOf(8).should.deepEqual([2, 2, 2]);
+      primeFactorsOf(9).should.deepEqual([3, 3]);
     });
   });
 });
