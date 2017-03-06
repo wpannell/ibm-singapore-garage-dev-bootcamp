@@ -11,6 +11,7 @@ describe.only('the prime numbers canary spec', () => {
     }
 
     return factors;
+
   };
 
   describe('a prime factors of ', () => {
