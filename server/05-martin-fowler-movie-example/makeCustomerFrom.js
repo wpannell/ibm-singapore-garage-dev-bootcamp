@@ -13,9 +13,9 @@ let makeCustomerFrom = (name) => {
       let statement = 'Rental Record for ' + name + '\n';
 
       for (let i = 0; i < rentals.length; i++) {
-        let subTotal = 0;
         let rental = rentals[i];
 
+        let subTotal = 0;
         //noinspection Eslint
         switch (rental.movie.priceCode) {
           case REGULAR:
