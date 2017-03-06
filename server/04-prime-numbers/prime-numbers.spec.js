@@ -1,15 +1,22 @@
-describe('the prime numbers canary spec', () => {
+/*eslint no-param-reassign: "off"*/
+describe.only('the prime numbers canary spec', () => {
   it('shows the infrastructure works', () => {
     true.should.be.true();
   });
 
   const primeFactorsOf = (number) => {
     let factors = [];
-    if (number > 1) factors.push(2);
+    if (number > 1) {
+      if (number % 2 === 0) {
+        factors.push(2);
+        number /= 2;
+      }
+      if (number > 1) factors.push(number);
+    }
     return factors;
   };
 
-  describe.only('a prime factors of ', () => {
+  describe('a prime factors of ', () => {
     it('1 is none', () => {
       primeFactorsOf(1).should.deepEqual([]);
     });
@@ -18,8 +25,14 @@ describe('the prime numbers canary spec', () => {
       primeFactorsOf(2).should.deepEqual([2]);
     });
 
-    it('3 are only 3');
-    it('4 are 2 and 2');
+    it('3 are only 3', () => {
+      primeFactorsOf(3).should.deepEqual([3]);
+    });
+
+    it('4 are 2 and 2', () => {
+      primeFactorsOf(4).should.deepEqual([2, 2]);
+    });
+
     it('5 is only 5');
     it('6 is 2 and 3');
     it('7 is only 7');
