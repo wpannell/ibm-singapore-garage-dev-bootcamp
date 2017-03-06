@@ -8,7 +8,6 @@ describe.only('line count', () => {
     }
     lineCount('server/async-01-line-count-with-callback/line-count.js', null, onSuccessReceivedLineCount);
   });
-
   it('for file —— is-not-there.js —— should be problem reading file: ' +
       'is-not-there.js');
 });
