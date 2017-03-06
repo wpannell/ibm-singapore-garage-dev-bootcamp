@@ -7,7 +7,7 @@ describe.only('line count', () => {
     const onSuccessReceiveLineCount = (numberOfLines) => {
       numberOfLines.should.equal(13);
       done();
-    }
+    };
 
     lineCount(filespec, null, onSuccessReceiveLineCount);
   });
@@ -17,7 +17,7 @@ describe.only('line count', () => {
     const onErrorReceiveMessage = (message) => {
       message.should.equal('problem reading file: is-not-there.js');
       done();
-    }
+    };
 
     lineCount('is-not-there.js', onErrorReceiveMessage, null);
   });
