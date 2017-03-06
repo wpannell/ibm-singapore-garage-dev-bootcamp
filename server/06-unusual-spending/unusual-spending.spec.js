@@ -1,7 +1,7 @@
 /*eslint dot-notation: "off"*/
 import {replace, when, verify} from '../../test-helper';
 
-describe.only('unusual spending', () => {
+describe('unusual spending', () => {
   it('interacts with fetch, catch, and email.', () => {
     const fetch = replace('./fetch')['fetch'];
     const categorize = replace('./categorize')['categorize'];
