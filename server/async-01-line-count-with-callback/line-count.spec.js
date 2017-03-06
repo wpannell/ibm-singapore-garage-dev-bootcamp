@@ -1,6 +1,6 @@
 import {lineCount} from './line-count';
 
-describe.only('line count', () => {
+describe('line count', () => {
   const filespec = 'server/async-01-line-count-with-callback/line-count.js';
 
   it('for file —— line-count.js —— should be 13', (done) => {
