@@ -1,4 +1,5 @@
-import td from 'testdouble';
+/* eslint dot-notation: 'off' */
+import {replace, when, verify} from '../../test-helper';
 
 describe('fetch spec', () => {
   it('shows the infrastructure works', () => {
@@ -7,33 +8,33 @@ describe('fetch spec', () => {
 
   describe('fetch should', () => {
     it('orchestrate the interaction of months and api', () => {
-      const months = td.replace('./months');
-      const api = td.replace('./api').api;
+      const months = replace('./months');
+      const api = replace('./api').api;
 
-      td.when(months.prior()).thenReturn('prior-month');
-      td.when(months.current()).thenReturn('current-month');
-      td.when(api('dummy-id', 'prior-month')).thenResolve('prior-payments');
-      td.when(api('dummy-id', 'current-month')).thenResolve('current-payments');
+      when(months.prior()).thenReturn('prior-month');
+      when(months.current()).thenReturn('current-month');
+      when(api('dummy-id', 'prior-month')).thenResolve('prior-payments');
+      when(api('dummy-id', 'current-month')).thenResolve('current-payments');
 
-      const fetch = require('./fetch').fetch;
+      const fetch = require('./fetch')['fetch'];
       fetch('dummy-id');
 
-      td.verify(months.prior());
-      td.verify(months.current());
-      td.verify(api('dummy-id', 'prior-month'));
-      td.verify(api('dummy-id', 'current-month'));
+      verify(months.prior());
+      verify(months.current());
+      verify(api('dummy-id', 'prior-month'));
+      verify(api('dummy-id', 'current-month'));
     });
 
     it('return correct output for stubbed inputs', (done) => {
-      const months = td.replace('./months');
-      const api = td.replace('./api').api;
+      const months = replace('./months');
+      const api = replace('./api').api;
 
-      td.when(months.prior()).thenReturn('prior-month');
-      td.when(months.current()).thenReturn('current-month');
-      td.when(api('dummy-id', 'prior-month')).thenResolve('prior-payments');
-      td.when(api('dummy-id', 'current-month')).thenResolve('current-payments');
+      when(months.prior()).thenReturn('prior-month');
+      when(months.current()).thenReturn('current-month');
+      when(api('dummy-id', 'prior-month')).thenResolve('prior-payments');
+      when(api('dummy-id', 'current-month')).thenResolve('current-payments');
 
-      const fetch = require('./fetch').fetch;
+      const fetch = require('./fetch')['fetch'];
       const fetchResult = fetch('dummy-id');
 
       Promise.all(fetchResult).then((values) => {
