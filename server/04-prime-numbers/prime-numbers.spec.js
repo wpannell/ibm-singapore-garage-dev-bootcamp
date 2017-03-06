@@ -7,9 +7,11 @@ describe('the prime numbers canary spec', () => {
   const primeFactorsOf = (number) => {
     const factors = [];
     if (number > 1) {
-      if (number % 2 === 0) {
-        factors.push(2);
-        number /= 2;
+      for (let divisor = 2; divisor <= number / 2; divisor++) {
+        if (number % divisor === 0) {
+          factors.push(divisor);
+          number /= divisor;
+        }
       }
 
       if (number > 1) factors.push(number);
@@ -34,8 +36,14 @@ describe('the prime numbers canary spec', () => {
       primeFactorsOf(4).should.deepEqual([2, 2]);
     });
 
-    it('5 are only 5');
-    it('6 are 2 and 3');
+    it('5 are only 5', () => {
+      primeFactorsOf(5).should.deepEqual([5]);
+    });
+
+    it('6 are 2 and 3', () => {
+      primeFactorsOf(6).should.deepEqual([2, 3]);
+    });
+
     it('7 are only 7');
     it('8 are 2, 2 and 2');
     it('9 are 3 and 3');
