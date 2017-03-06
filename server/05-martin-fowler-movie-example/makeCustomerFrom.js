@@ -1,6 +1,7 @@
 /**/
 
 import {NEW_RELEASE} from './movie-codes';
+import {amountFor} from './amount-for';
 
 let makeCustomerFrom = (name) => {
   let rentals = [];
@@ -17,7 +18,7 @@ let makeCustomerFrom = (name) => {
       for (let i = 0; i < rentals.length; i++) {
         let rental = rentals[i];
 
-        let subTotal = rental.amountFor;
+        let subTotal = amountFor(rental);
 
         // add frequent renter points
         frequentRenterPoints++;
