@@ -1,3 +1,4 @@
+/* eslint no-param-reassign: 'off' */
 describe('the prime numbers canary spec', () => {
   it('shows the infrastructure works', () => {
     true.should.be.true();
@@ -5,7 +6,14 @@ describe('the prime numbers canary spec', () => {
 
   const primeFactorsOf = (number) => {
     const factors = [];
-    if (number > 1) factors.push(number);
+    if (number > 1) {
+      if (number % 2 === 0) {
+        factors.push(2);
+        number /= 2;
+      }
+
+      if (number > 1) factors.push(number);
+    }
     return factors;
   };
 
@@ -22,7 +30,10 @@ describe('the prime numbers canary spec', () => {
       primeFactorsOf(3).should.deepEqual([3]);
     });
 
-    it('4 are 2 and 2');
+    it('4 are 2 and 2', () => {
+      primeFactorsOf(4).should.deepEqual([2, 2]);
+    });
+
     it('5 are only 5');
     it('6 are 2 and 3');
     it('7 are only 7');
