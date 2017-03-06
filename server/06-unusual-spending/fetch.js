@@ -1,3 +1,4 @@
+/*
 import {current, prior} from './months';
 import {api} from './api';
 
@@ -8,3 +9,4 @@ const fetch = (userId) => {
   const fetchPriorMonth = api(userId, priorMonth);
 };
 export {fetch};
+*/

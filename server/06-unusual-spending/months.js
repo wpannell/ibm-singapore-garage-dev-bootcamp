@@ -1,3 +1,4 @@
+/*
 const months = () => {
 
   const current = () => {};
@@ -6,3 +7,4 @@ const months = () => {
 //  export {current, prior};
 
 };
+*/

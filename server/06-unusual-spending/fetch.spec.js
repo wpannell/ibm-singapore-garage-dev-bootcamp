@@ -1,6 +1,7 @@
+/*
 import td from 'testdouble';
 
-describe.only('the canary spec for fetch', () => {
+describe('the canary spec for fetch', () => {
   it('shows the infrastructure works', () => {
     true.should.be.true();
   });
@@ -26,3 +27,4 @@ describe.only('the canary spec for fetch', () => {
     });
   });
 });
+*/
