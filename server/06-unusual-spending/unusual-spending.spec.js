@@ -1,29 +1,26 @@
-import td from 'testdouble';
+/* eslint dot-notation: 'off' */
+import {replace, when, verify} from '../../test-helper';
 
-describe('unusual spending spec', () => {
+describe('unusual spending', () => {
   it('shows the infrastructure works', () => {
     true.should.be.true();
   });
 
   describe('unusual spending should', () => {
-    it('orchestrate the interaction of fetch, ' +
-        'categorize and email', (done) => {
-      const fetch = td.replace('./fetch').fetch;
-      const categorize = td.replace('./categorize').categorize;
-      const email = td.replace('./email').email;
+    it('interact with fetch, categorize and email', () => {
+      const fetch = replace('./fetch')['fetch'];
+      const categorize = replace('./categorize')['categorize'];
+      const email = replace('./email')['email'];
 
-      td.when(fetch('dummy-id')).thenResolve('dummy-payments');
-      td.when(categorize('dummy-payments')).thenReturn('dummy-categorized-payments');
+      let unusualSpending;
 
-      const unusualSpending = require('./unusual-spending').unusualSpending;
-      unusualSpending('dummy-id');
+      when(fetch('user-id')).thenReturn('payments');
+      when(categorize('payments')).thenReturn('categorized-payments');
 
-      setInterval(() => {
-        td.verify(fetch('dummy-id'));
-        td.verify(categorize('dummy-payments'));
-        td.verify(email('dummy-id', 'dummy-categorized-payments'));
-        done();
-      }, 20);
+      unusualSpending = require('./unusual-spending')['unusualSpending'];
+      unusualSpending('user-id');
+
+      verify(email('user-id', 'categorized-payments'));
     });
   });
 });
