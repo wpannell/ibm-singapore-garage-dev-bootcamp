@@ -22,7 +22,7 @@ describe.only('the canary spec for fetch', () => {
       const priorMonth = {year: 2016, month: 11};
 
       td.when(months.current()).thenRetrun(currentMonth);
-      td.when(montns.priorMonth).thenReturn(priorMonth);
+      td.when(months.priorMonth).thenReturn(priorMonth);
     });
   });
 });
