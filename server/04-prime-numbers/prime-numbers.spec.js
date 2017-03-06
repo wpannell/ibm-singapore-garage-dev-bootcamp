@@ -10,6 +10,7 @@ describe.only('the prime numbers canary spec', () => {
 
     if (number > 1) {
       for (; number % 2 === 0; number /= 2) factors.push(2);
+      for (; number % 3 === 0; number /= 3) factors.push(3);
     }
 
     if (number > 1) factors.push(number);
