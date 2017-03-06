@@ -7,7 +7,7 @@ describe('the prime numbers canary spec', () => {
     let factors = [];
     if (number > 1) factors.push(2);
     return factors;
-  }
+  };
 
   describe.only('a prime factors of ', () => {
     it('1 is none', () => {
