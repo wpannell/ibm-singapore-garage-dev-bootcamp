@@ -5,7 +5,7 @@ describe('line count can be checked', () => {
 
   it('with the done parameter like with a callback', done => {
     const receiveCount = (numberOfLines) => {
-      numberOfLines.should.equal(14);
+      numberOfLines.should.equal(19);
       done();
     };
 
@@ -14,13 +14,13 @@ describe('line count can be checked', () => {
 
   it('by returning the promise after .then', () => {
     const receiveCount = (numberOfLines) => {
-      numberOfLines.should.equal(14);
+      numberOfLines.should.equal(19);
     };
 
     return lineCount(filespec).then(receiveCount);
   });
 
   it('by using eventually or fulfilledWith', () => {
-    return lineCount(filespec).should.eventually.equal(14);
+    return lineCount(filespec).should.eventually.equal(19);
   });
 });
