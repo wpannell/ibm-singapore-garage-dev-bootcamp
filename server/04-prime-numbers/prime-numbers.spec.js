@@ -40,7 +40,9 @@ describe.only('the prime numbers canary spec', () => {
       primeNumbersOf(5).should.deepEqual([5]);
     });
 
-    it('"6" are  "2" and "3"');
+    it('"6" are  "2" and "3"', () => {
+      primeNumbersOf(6).should.not.deepEqual([2, 3]);
+    });
     it('"7" is only "7"');
     it('"8" are  "2," "2" and "2"');
     it('"9" are  "3" and "3"');
