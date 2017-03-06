@@ -14,7 +14,6 @@ describe('the prime numbers canary spec', () => {
           divisor = 1;
         }
       }
-
       if (number > 1) factors.push(number);
     }
     return factors;
@@ -53,7 +52,12 @@ describe('the prime numbers canary spec', () => {
       primeFactorsOf(8).should.deepEqual([2, 2, 2]);
     });
 
-    it('9 are 3 and 3');
-    it('10 are 2 and 5');
+    it('9 are 3 and 3', () => {
+      primeFactorsOf(9).should.deepEqual([3, 3]);
+    });
+
+    it('10 are 2 and 5', () => {
+      primeFactorsOf(10).should.deepEqual([2, 5]);
+    });
   });
 });
