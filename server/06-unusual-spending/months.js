@@ -1,10 +1,4 @@
-/*
-const months = () => {
+const current = () => {};
+const prior = () => {};
 
-  const current = () => {};
-  const prior = () => {};
-
-//  export {current, prior};
-
-};
-*/
+export {current, prior};

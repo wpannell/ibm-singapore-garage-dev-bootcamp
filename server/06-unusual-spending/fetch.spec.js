@@ -1,30 +1,30 @@
-/*
-import td from 'testdouble';
+import {replace, when} from '../../test-helper';
 
-describe('the canary spec for fetch', () => {
-  it('shows the infrastructure works', () => {
-    true.should.be.true();
-  });
+describe('fetch will', () => {
+  it('call the API with this and last month', () => {
 
-  describe('fetch will', () => {
+    const months = replace('./months');
+    const api = replace('./api').api;
 
-    it('orachestrate the interaction of month, ' +
-    'and api', () => {
-    });
+    const fetch = require('./fetch').fetch;
 
-    it('cal the API with this and last month', () => {
+    const userId = 'faker-user-id';
 
-      const months = td.replace('./months');
-      const api = td.replace('./api').api;
-      const fetch = require('./fetch').fetch;
-      const userId = 'faker-user-id';
+    const currentMonth = {year: 2016, month: 12};
+    const priorMonth = {year: 2016, month: 11};
 
-      const currentMonth = {year: 2016, month: 12};
-      const priorMonth = {year: 2016, month: 11};
+    const currentPayments = [];
+    const priorPayments = [];
 
-      td.when(months.current()).thenRetrun(currentMonth);
-      td.when(months.priorMonth).thenReturn(priorMonth);
-    });
+    when(months.current()).thenReturn(currentMonth);
+    when(months.prior()).thenReturn(priorMonth);
+
+    when(api(userId, currentMonth)).thenReturn(currentPayments);
+    when(api(userId, priorMonth)).thenReturn(priorPayments);
+
+    fetch(userId).should.deepEqual([
+      {month: currentMonth, payment: currentPayments},
+      {month: priorMonth, payment: priorPayments}
+    ]);
   });
 });
-*/
