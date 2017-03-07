@@ -2,7 +2,11 @@ import {REGULAR, NEW_RELEASE, CHILDRENS} from './movie-codes';
 
 let makeRentalFrom = (movie, daysRented) => {
 
+<<<<<<< HEAD
   let getCharge = () => {
+=======
+  let getCharge = function () {
+>>>>>>> origin/aldred
     let subTotal = 0;
     switch (movie.priceCode) {
       case REGULAR:
@@ -27,16 +31,23 @@ let makeRentalFrom = (movie, daysRented) => {
 
         break;
       default:
+<<<<<<< HEAD
 
     }
     return subTotal;
   };
 
+=======
+    }
+    return subTotal;
+    };
+>>>>>>> origin/aldred
   return {
     get movie() { return movie; },
     get daysRented() { return daysRented; },
     getCharge
   };
+
 };
 
 export {makeRentalFrom};

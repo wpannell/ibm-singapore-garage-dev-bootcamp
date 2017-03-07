@@ -1,5 +1,8 @@
 /*eslint no-param-reassign: "off"*/
+<<<<<<< HEAD
 /*eslint curly: "off"*/
+=======
+>>>>>>> origin/aldred
 describe('the prime numbers canary spec', () => {
   it('shows the infrastructure works', () => {
     true.should.be.true();
@@ -11,8 +14,23 @@ describe('the prime numbers canary spec', () => {
     return factors;
   };
 
+<<<<<<< HEAD
   describe('a prime numbers of', () => {
     it('1 is empty', () => {
+=======
+  const primeFactorsOf = (number) => {
+    let factors = [];
+    for (let divisor = 2; number > 1; divisor++) {
+      //divide by 2 until it cannot be divided by 2. for each iteration, push 2
+      for (; number % divisor === 0; number /= divisor) factors.push(divisor);
+    }
+    if (number > 1) factors.push(number);
+    return factors;
+  };
+
+  describe('prime factors of', () => {
+    it('1 is none', () => {
+>>>>>>> origin/aldred
       primeFactorsOf(1).should.deepEqual([]);
     });
     it('2 are only 2', () => {
