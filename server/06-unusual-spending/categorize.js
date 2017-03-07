@@ -12,25 +12,29 @@ const calculateCategoryTotals = payment => {
   return categoryTotals;
 };
 
+const categorizeSinglePayment = (payment, returnArray) => {
+  let categorizedPayment = {
+    month: payment.month,
+    payments: []
+  };
+
+  let categoryTotals = calculateCategoryTotals(payment);
+
+  for (let key in categoryTotals) {
+    categorizedPayment.payments.push({
+      amount: categoryTotals[key],
+      category: key
+    });
+  }
+
+  returnArray.push(categorizedPayment);
+};
+
 const categorize = payments => {
   const returnArray = [];
 
   for (var payment of payments) {
-    let categorizedPayment = {
-      month: payment.month,
-      payments: []
-    };
-
-    let categoryTotals = calculateCategoryTotals(payment);
-
-    for (let key in categoryTotals) {
-      categorizedPayment.payments.push({
-        amount: categoryTotals[key],
-        category: key
-      });
-    }
-
-    returnArray.push(categorizedPayment);
+    categorizeSinglePayment(payment, returnArray);
   }
 
   return returnArray;
