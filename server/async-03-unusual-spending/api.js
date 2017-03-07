@@ -1,7 +1,0 @@
-const api = () => {
-
-
-
-};
-
-export {api};
