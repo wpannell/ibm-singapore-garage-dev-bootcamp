@@ -50,7 +50,7 @@ describe('categorize', () => {
       month: 1
     },
     payments: [
-      {amount: 560, category: 'golf'},
+      {amount: 280, category: 'golf'},
       {amount: 870, category: 'dinner'},
       {amount: 480, category: 'lunch'}
     ]

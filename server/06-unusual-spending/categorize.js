@@ -1,29 +1,38 @@
-const categorize = () => {
+let calculateCategoryTotals = function (payment) {
+  let categoryTotals = {};
 
-  const categorized_payments = [{
-    month: {
-      year: 2017,
-      month: 2
-    },
-    payments: [
-      {amount: 960, category: 'golf'},
-      {amount: 580, category: 'dinner'},
-      {amount: 90, category: 'lunch'}
-    ]
-  }, {
-    month: {
-      year: 2017,
-      month: 1
-    },
-    payments: [
-      {amount: 560, category: 'golf'},
-      {amount: 870, category: 'dinner'},
-      {amount: 480, category: 'lunch'}
-    ]
-  }];
+  for (let paymentEntry of payment.payments) {
+    if (typeof categoryTotals[paymentEntry.category] === 'undefined') {
+      categoryTotals[paymentEntry.category] = paymentEntry.amount;
+    } else {
+      categoryTotals[paymentEntry.category] += paymentEntry.amount;
+    }
+  }
 
-  return categorized_payments;
+  return categoryTotals;
+};
+const categorize = (payments) => {
+  const returnArray = [];
 
+  for (var payment of payments) {
+    let categorizedPayment = {
+      month: payment.month,
+      payments: []
+    };
+
+    let categoryTotals = calculateCategoryTotals(payment);
+
+    for (let key in categoryTotals) {
+      categorizedPayment.payments.push({
+        amount: categoryTotals[key],
+        category: key
+      });
+    }
+
+    returnArray.push(categorizedPayment);
+  }
+
+  return returnArray;
 };
 
 export {categorize};
