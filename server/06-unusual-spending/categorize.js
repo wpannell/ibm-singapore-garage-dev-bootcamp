@@ -1,4 +1,4 @@
-let calculateCategoryTotals = function (payment) {
+const calculateCategoryTotals = payment => {
   let categoryTotals = {};
 
   for (let paymentEntry of payment.payments) {
@@ -11,7 +11,8 @@ let calculateCategoryTotals = function (payment) {
 
   return categoryTotals;
 };
-const categorize = (payments) => {
+
+const categorize = payments => {
   const returnArray = [];
 
   for (var payment of payments) {
