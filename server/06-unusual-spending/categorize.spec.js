@@ -56,7 +56,7 @@ describe('categorize', () => {
     ]
   }];
 
-  it('user-id and prior month returns prior months payments', () => {
+  it('categorize calculates correct totals', () => {
     categorize([current_payments, prior_payments]).should.deepEqual(categorized_payments);
   });
 
