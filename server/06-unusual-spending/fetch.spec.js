@@ -2,7 +2,7 @@
 
 import {replace, when, verify} from '../../test-helper';
 
-describe.only('fetch', () => {
+describe('fetch', () => {
     it('interacts with months and api', () => {
         const months = replace('./months');
         const api = replace('./api')['api'];
