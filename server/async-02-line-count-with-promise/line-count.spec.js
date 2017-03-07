@@ -18,7 +18,7 @@ describe('line count can be checked', () => {
       numberOfLines.should.equal(14);
     };
 
-    lineCount(filespec).then(receiveCount);
+    return lineCount(filespec).then(receiveCount);
   });
 
 
