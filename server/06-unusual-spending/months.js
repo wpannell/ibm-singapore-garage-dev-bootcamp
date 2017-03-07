@@ -1,17 +1,28 @@
-const FEB_2017 = {
-  month: {
-    year: 2017,
-    month: 2
-  }
-};
-const MAR_2017 = {
-  month: {
-    year: 2017,
-    month: 3
-  }
+/* eslint no-param-reassign: 'off' */
+const returnMonthObject = currentDate => {
+  return {
+    month: {
+      year: currentDate.getFullYear(),
+      month: currentDate.getMonth() + 1
+    }
+  };
 };
 
-const current = () => {return MAR_2017;};
-const prior = () => {return FEB_2017;};
+const current = (currentDate) => {
+  if (typeof currentDate === 'undefined') {
+    currentDate = new Date();
+  }
+
+  return returnMonthObject(currentDate);
+};
+
+const prior = (currentDate) => {
+  if (typeof currentDate === 'undefined') {
+    currentDate = new Date();
+  }
+
+  currentDate.setMonth(currentDate.getMonth() - 1);
+  return returnMonthObject(currentDate);
+};
 
 export {current, prior};
