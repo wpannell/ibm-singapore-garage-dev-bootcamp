@@ -1,7 +1,7 @@
 /*eslint dot-notation: "off"*/
 import {replace, when, verify} from '../../test-helper';
 
-describe('unusual spending ', () => {
+describe.only('unusual spending ', () => {
   it('interacts with fetch, categorize, and email', () => {
     const fetch = replace('./fetch')['fetch'];
     const categorize = replace('./categorize')['categorize'];
@@ -9,14 +9,14 @@ describe('unusual spending ', () => {
 
     let unusualSpending;
 
-    when(fetch('user-id')).thenReturn('payments');
-    when(categorize('payments')).thenReturn('categorized');
-
     unusualSpending = require('./unusual-spending')['unusualSpending'];
 
-    unusualSpending('user-id');
+    when(fetch('user-id')).thenResolve('payments');
+    when(categorize('payments')).thenReturn('categorizedPayments');
 
-    verify(email('user-id', 'categorized'));
+    return unusualSpending('user-id').then(() => {
+      verify(email('user-id', 'categorizedPayments'));
+    });
   });
 
 });
