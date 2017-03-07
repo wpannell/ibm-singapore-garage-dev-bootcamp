@@ -19,7 +19,9 @@ describe('line count can be checked', () => {
 
   });
 
-  it('by using eventually or fulfilledWith');
+  it('by using eventually or fulfilledWith', () => {
+    return lineCount(filespec).should.eventually.equal(14);
+  });
 });
 
 export {lineCount};
