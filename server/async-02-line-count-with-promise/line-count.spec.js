@@ -1,6 +1,6 @@
 import {lineCount} from './line-count';
 
-describe.only('line count can be checked', () => {
+describe('line count can be checked', () => {
   const filespec = 'server/async-02-line-count-with-promise/line-count.js';
 
   it('with the done parameter like with a callback', (done) => {
