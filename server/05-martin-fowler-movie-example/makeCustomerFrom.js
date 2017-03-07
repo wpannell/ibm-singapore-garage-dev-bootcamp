@@ -4,6 +4,7 @@ import {NEW_RELEASE} from './movie-codes';
 let makeCustomerFrom;
 makeCustomerFrom = (name) => {
   let rentals = [];
+
   return {
     get name() {
       return name;
@@ -20,10 +21,7 @@ makeCustomerFrom = (name) => {
       for (let i = 0; i < rentals.length; i++) {
         let rental = rentals[i];
         let subTotal = rental.getCharge();
-<<<<<<< HEAD
         //noinspection Eslint
-=======
->>>>>>> origin/aldred
 
         // add frequent renter points
         frequentRenterPoints++;
