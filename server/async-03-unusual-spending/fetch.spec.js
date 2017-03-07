@@ -1,7 +1,7 @@
 /*eslint dot-notation: "off"*/
 import {replace, when, verify} from '../../test-helper';
 
-describe.only('fetch', () => {
+describe('fetch', () => {
   it('interacts with month and api', () => {
     const months = replace('./months');
     const api = replace('./api')['api'];
