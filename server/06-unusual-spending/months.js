@@ -8,21 +8,13 @@ const returnMonthObject = currentDate => {
   };
 };
 
-const current = (currentDate) => {
-  if (typeof currentDate === 'undefined') {
-    currentDate = new Date();
-  }
-
-  return returnMonthObject(currentDate);
+const current = (date = new Date()) => {
+  return returnMonthObject(date);
 };
 
-const prior = (currentDate) => {
-  if (typeof currentDate === 'undefined') {
-    currentDate = new Date();
-  }
-
-  currentDate.setMonth(currentDate.getMonth() - 1);
-  return returnMonthObject(currentDate);
+const prior = (date = new Date()) => {
+  date.setMonth(date.getMonth() - 1);
+  return returnMonthObject(date);
 };
 
 export {current, prior};
