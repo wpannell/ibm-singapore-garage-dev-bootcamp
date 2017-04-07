@@ -10,17 +10,16 @@ describe('unusual spending ', () => {
 
     let unusualSpending;
 
-    when(fetch('user-id')).thenReturn('payments');
+    when(fetch('user-id')).thenResolve('payments');
     when(categorize('payments')).thenReturn('categorized');
 
     unusualSpending = require('./unusual-spending')['unusualSpending'];
 
-    unusualSpending('user-id');
+    const payments = () => {
+      verify(email('user-id', 'categorized'));
+    };
 
-    //act
-    //assert
-
-    verify(email('user-id', 'categorized'));
+    return unusualSpending('user-id').then(payments);
   });
 
 });
