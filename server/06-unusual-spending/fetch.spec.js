@@ -1,5 +1,5 @@
 /*eslint dot-notation: "off"*/
-import {replace, when, verify, reset} from 'testdouble';
+import {replace, when} from 'testdouble';
 
 describe('fetch ', () => {
   it('interacts with months and api', () => {
