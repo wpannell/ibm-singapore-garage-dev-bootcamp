@@ -1,15 +1,15 @@
 /*eslint dot-notation: "off"*/
-import {replace, when} from '../../test-helper';
+import {replace, when, verify} from '../../test-helper';
 
 describe.only('fetch ', () => {
   it('interacts with months and api wrapper', () => {
     const api = replace('./api-wrapper')['apiWrapper'];
     const months = replace('./months');
     let fetch;
-    const currentMonth = 'currentMonth';
-    const priorMonth = 'priorMonth';
-    const priorMonthPayment = 'priorMonthPayment';
-    const currentMonthPayment = 'currentMonthPayment';
+    const currentMonth = {month: 4, year: 2017};
+    const priorMonth = {month: 3, year: 2017};
+    const currentMonthPayment = [{price: 100, category: 'dinner'}, {price: 100, category: 'lunch'}];
+    const priorMonthPayment = [{price: 100, category: 'dinner'}, {price: 100, category: 'lunch'}];
 
     const assertOutput = {
       current: {
@@ -22,12 +22,14 @@ describe.only('fetch ', () => {
 
     when(months.current()).thenReturn(currentMonth);
     when(months.prior()).thenReturn(priorMonth);
-    when(api('user-id', currentMonth)).thenResolve(assertOutput);
+    when(api('user-id', currentMonth)).thenResolve(currentMonthPayment);
     when(api('user-id', priorMonth)).thenResolve(priorMonthPayment);
 
     fetch = require('./fetch')['fetch'];
 
-
-    return fetch('user-id').should.eventually.deepEqual(assertOutput);
+    const payments = (input) => {
+      input.should.deepEqual(assertOutput);
+    };
+    return fetch('user-id').then(payments);
   });
 });
