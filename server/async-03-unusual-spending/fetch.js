@@ -9,18 +9,15 @@ const fetch = (userId) => {
   const apiPrior = apiWrapper(userId, priorMonth);
 
   return Promise.all([apiCurrent, apiPrior]).then((paymentData) => {
-    let newObj = {};
-    let current = {};
-    let prior = {};
-    current.month = currentMonth;
-    current.payment = paymentData[0];
-    prior.month = priorMonth;
-    prior.payment = paymentData[1];
-    newObj.current = current;
-    newObj.prior = prior;
-    return Promise.resolve(newObj);
+    return Promise.resolve({
+      current: {
+        month: currentMonth, payment: paymentData[0]
+      },
+      prior: {
+        month: priorMonth, payment: paymentData[1]
+      }
+    });
   });
-
 };
 
 export {fetch};

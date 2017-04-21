@@ -1,6 +1,7 @@
 import {lineCount} from './line-count';
 
 describe('line count can be checked', () => {
+<<<<<<< HEAD
   const filespec = 'server/async-02-line-count-with-promise/line-count.js';
   it('with the done parameter like with a callback', done => {
     const receiveCount = (numberOfLines) => {
@@ -9,6 +10,9 @@ describe('line count can be checked', () => {
     };
     lineCount(filespec).then(receiveCount);
   });
+=======
+  //const filespec = 'server/async-01-line-count-with-callback/line-count.js';
+>>>>>>> origin/integration
 
   it('by returning the promise after .then', () => {
     const receiveCount = (numberOfLines) => {
